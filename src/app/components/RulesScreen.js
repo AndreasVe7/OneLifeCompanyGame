@@ -17,7 +17,7 @@ const RulesScreen = ({ onStart }) => {
       <div className={styles.content}>
         <div className={styles.imageReplacementContainer}>
           <Image
-            src="/group 1 (3).png"
+            src="/group-1-3.png"
             alt="Game Rules"
             width={1008}
             height={756}

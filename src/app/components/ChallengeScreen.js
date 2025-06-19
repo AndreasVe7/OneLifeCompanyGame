@@ -52,7 +52,7 @@ const ChallengeScreen = ({ onTimerEnd }) => {
           <div className={styles.timer}>{timer}</div>
           <div className={styles.challengeMainRow}>
             <Image
-              src="/group 2 (3).png"
+              src="/group-2-3.png"
               alt="Group 2 Image"
               width={500}
               height={500}

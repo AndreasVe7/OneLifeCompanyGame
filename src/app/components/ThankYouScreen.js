@@ -15,7 +15,7 @@ const ThankYouScreen = () => (
     </div>
     <div className={styles.content}>
       <Image
-        src="/group 3 (2).png"
+        src="/group-3-2.png"
         alt="Group 3"
         width={900}
         height={900}
