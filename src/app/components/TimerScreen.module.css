@@ -1,0 +1,41 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+
+.timer {
+  font-family: 'Orbitron', 'Impact', sans-serif;
+  font-size: 8rem;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.doneButton {
+  font-family: 'Impact', sans-serif;
+  font-size: 3rem;
+  padding: 1rem 4rem;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10);
+  transition: background 0.2s, color 0.2s, transform 0.1s;
+  display: block;
+}
+
+.doneButton:hover {
+  background: #eee;
+  color: #222;
+  transform: scale(1.04);
+} 

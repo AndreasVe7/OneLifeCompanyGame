@@ -1,0 +1,93 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: background-color 0.5s ease;
+}
+
+.blackBackground {
+  background-color: #000;
+}
+
+.whiteBackground {
+  background-color: #fff;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: pulse 2s infinite;
+}
+
+.logo {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.bottomText {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  transition: color 0.5s ease;
+}
+
+.whiteText {
+  color: #fff;
+}
+
+.blackText {
+  color: #000;
+}
+
+.collaboration {
+  font-family: 'Impact', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.instruction {
+  font-family: 'Impact', sans-serif;
+  font-size: 1.2rem;
+  opacity: 0.8;
+  letter-spacing: 0.05em;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+} 
