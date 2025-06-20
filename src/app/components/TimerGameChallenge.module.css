@@ -98,7 +98,7 @@
 }
 
 .timer {
-  font-family: 'Orbitron', 'Impact', sans-serif;
+  font-family: 'Impact', sans-serif !important;
   font-size: 7rem;
   color: #000;
   font-weight: bold;

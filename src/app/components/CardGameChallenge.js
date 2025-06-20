@@ -60,11 +60,11 @@ const CardGameChallenge = ({ onTimerEnd, onWin, onLose }) => {
   useEffect(() => {
     if (picked === null) return;
     if (picked === winningCard) {
-      setMessage('Gefeliciteerd! Je hebt 20% korting gewonnen!');
+      setMessage('CONGRATULATIONS! YOU WON 20% DISCOUNT!');
       const timeout = setTimeout(() => onWin && onWin(), 1200);
       return () => clearTimeout(timeout);
     } else {
-      setMessage('Helaas, geen prijs onder deze kaart.');
+      setMessage('SORRY, NO PRIZE UNDER THIS CARD.');
       const timeout = setTimeout(() => onLose && onLose(), 1200);
       return () => clearTimeout(timeout);
     }
@@ -80,7 +80,7 @@ const CardGameChallenge = ({ onTimerEnd, onWin, onLose }) => {
     return (
       <div className={styles.container}>
         <div className={styles.content}>
-          <div className={styles.timer}>{pickTimer}</div>
+          <div className={styles.timer} style={{ fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{pickTimer}</div>
           <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center', margin: '2rem 0' }}>
             {[...Array(NUM_CARDS)].map((_, idx) => (
               <div key={idx} style={{ cursor: picked === null ? 'pointer' : 'default', opacity: picked !== null && picked !== idx ? 0.5 : 1 }} onClick={() => handlePick(idx)}>
@@ -88,8 +88,8 @@ const CardGameChallenge = ({ onTimerEnd, onWin, onLose }) => {
               </div>
             ))}
           </div>
-          {picked !== null && <div style={{ fontSize: '2rem', color: picked === winningCard ? '#48923E' : '#C81E1E', marginTop: '1rem' }}>{message}</div>}
-          {picked === null && <div style={{ fontSize: '1.2rem', color: '#fff', marginTop: '1rem' }}>Kies een kaart! Onder één kaart zit 20% korting.</div>}
+          {picked !== null && <div style={{ fontSize: '2rem', color: picked === winningCard ? '#48923E' : '#C81E1E', marginTop: '1rem', fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{message}</div>}
+          {picked === null && <div style={{ fontSize: '1.2rem', color: '#fff', marginTop: '1rem', fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }}>PICK A CARD! ONE CARD HAS 20% DISCOUNT.</div>}
         </div>
       </div>
     );
@@ -109,7 +109,7 @@ const CardGameChallenge = ({ onTimerEnd, onWin, onLose }) => {
       {showFlash && <div className={styles.flash} />}
       {showContent && (
         <div className={styles.content}>
-          <div className={styles.timer}>{timer}</div>
+          <div className={styles.timer} style={{ fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{timer}</div>
           <div className={styles.challengeMainRow}>
             <Image
               src="/cardgametext.png"

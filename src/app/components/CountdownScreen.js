@@ -35,11 +35,11 @@ const CountdownScreen = ({ onComplete, onTimeUp }) => {
   return (
     <div className={styles.container}>
       <div className={styles.challengeReminder}>
-        <h2>Maak binnen 30 seconden een selfie met iemand in onze rij.</h2>
+        <h2 style={{ fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }}>TAKE A SELFIE WITH SOMEONE IN OUR LINE WITHIN 30 SECONDS.</h2>
       </div>
 
       <div className={styles.timerContainer}>
-        <div className={`${styles.timer} ${timeLeft <= 5 ? styles.warning : ''}`}>
+        <div className={`${styles.timer} ${timeLeft <= 5 ? styles.warning : ''}`} style={{ fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
           {formatTime(timeLeft)}
         </div>
       </div>

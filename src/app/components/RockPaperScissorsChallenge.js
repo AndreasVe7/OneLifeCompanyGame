@@ -35,11 +35,11 @@ const RockPaperScissorsChallenge = ({ phase, onTimerEnd, onStart, onCounterDone,
           <Image src="/transa.png" alt="Transa Logo" width={100} height={100} className={styles.logo} />
         </div>
         <div className={styles.content} style={{ background: '#fff' }}>
-          <div style={{ fontSize: '2.2rem', color: '#000', marginBottom: '2rem', textAlign: 'center', maxWidth: 700 }}>
-            If you win <b>3 times in a row</b> at Rock Paper Scissors with different people each time, you win a shirt!<br /><br />
-            Press START when you are ready to begin.
+          <div style={{ fontSize: '2.8rem', color: '#000', marginBottom: '2.5rem', textAlign: 'center', maxWidth: 900, fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            IF YOU WIN <b>3 TIMES IN A ROW</b> AT ROCK PAPER SCISSORS WITH DIFFERENT PEOPLE EACH TIME, YOU WIN A HEADWEAR BY CHOICE!<br /><br />
+            PRESS START WHEN YOU ARE READY TO BEGIN.
           </div>
-          <button style={{ marginTop: 40, fontSize: '2rem', padding: '1rem 3rem', borderRadius: 8, background: '#000', color: '#fff', border: 'none', fontWeight: 'bold', cursor: 'pointer' }} onClick={onStart}>
+          <button style={{ marginTop: 50, fontSize: '2.5rem', padding: '1.2rem 4rem', borderRadius: 10, background: '#000', color: '#fff', border: 'none', fontWeight: 'bold', cursor: 'pointer', fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }} onClick={onStart}>
             START
           </button>
         </div>
@@ -54,9 +54,9 @@ const RockPaperScissorsChallenge = ({ phase, onTimerEnd, onStart, onCounterDone,
           <Image src="/transa.png" alt="Transa Logo" width={100} height={100} className={styles.logo} />
         </div>
         <div className={styles.content} style={{ background: '#fff', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-          <div style={{ fontSize: '7rem', fontWeight: 'bold', margin: '2rem 0', textAlign: 'center' }}>{winCount}/3</div>
+          <div style={{ fontSize: '7rem', fontWeight: 'bold', margin: '2rem 0', textAlign: 'center', fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{winCount}/3</div>
           <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center', marginTop: '2rem' }}>
-            <button style={{ fontSize: '2rem', padding: '1rem 3rem', borderRadius: 8, background: '#48923E', color: '#fff', border: 'none', fontWeight: 'bold', cursor: 'pointer' }} onClick={() => {
+            <button style={{ fontSize: '2rem', padding: '1rem 3rem', borderRadius: 8, background: '#48923E', color: '#fff', border: 'none', fontWeight: 'bold', cursor: 'pointer', fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }} onClick={() => {
               if (winCount + 1 === 3) {
                 onCounterDone && onCounterDone('win');
               } else {
@@ -65,7 +65,7 @@ const RockPaperScissorsChallenge = ({ phase, onTimerEnd, onStart, onCounterDone,
             }}>
               DONE
             </button>
-            <button style={{ fontSize: '2rem', padding: '1rem 3rem', borderRadius: 8, background: '#C81E1E', color: '#fff', border: 'none', fontWeight: 'bold', cursor: 'pointer' }} onClick={() => onCounterDone && onCounterDone('fail')}>
+            <button style={{ fontSize: '2rem', padding: '1rem 3rem', borderRadius: 8, background: '#C81E1E', color: '#fff', border: 'none', fontWeight: 'bold', cursor: 'pointer', fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }} onClick={() => onCounterDone && onCounterDone('fail')}>
               FAIL
             </button>
           </div>
@@ -81,7 +81,7 @@ const RockPaperScissorsChallenge = ({ phase, onTimerEnd, onStart, onCounterDone,
         <Image src="/transa.png" alt="Transa Logo" width={100} height={100} className={styles.logo} />
       </div>
       <div className={styles.content} style={{ background: '#fff' }}>
-        <div className={styles.timer} style={{ color: '#000' }}>{timer}</div>
+        <div className={styles.timer} style={{ color: '#000', fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{timer}</div>
         <div className={styles.challengeMainRow}>
           <Image src="/bladsteenschaar.png" alt="Rock Paper Scissors" width={400} height={400} className={styles.leftImage} priority />
           <Image src="/bladsteen.png" alt="Rock Paper" width={400} height={400} className={styles.rightImage} priority />

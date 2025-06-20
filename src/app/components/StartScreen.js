@@ -26,18 +26,19 @@ const StartScreen = ({ onStart, includeFirstChallenge, setIncludeFirstChallenge 
 
   return (
     <div className={styles.container}>
-      <h1 className={`${styles.title} ${isGlitching ? styles.glitch : ''}`}>
-        Ready to take a risk?
+      <h1 className={`${styles.title} ${isGlitching ? styles.glitch : ''}`} style={{ fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+        READY TO TAKE A RISK?
       </h1>
       <button 
         className={styles.startButton}
         onClick={onStart}
+        style={{ fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }}
       >
         PRESS TO START
       </button>
       <div style={{ marginTop: 24, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <label style={{ fontSize: '1.2rem', color: '#fff', marginRight: 12 }}>
-          Include first challenge
+        <label style={{ fontSize: '1.2rem', color: '#fff', marginRight: 12, fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+          INCLUDE FIRST CHALLENGE
         </label>
         <input
           type="checkbox"

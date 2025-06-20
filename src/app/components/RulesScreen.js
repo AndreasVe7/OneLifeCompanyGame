@@ -19,8 +19,8 @@ const RulesScreen = ({ onStart }) => {
           <Image
             src="/group-1-3.png"
             alt="Game Rules"
-            width={1008}
-            height={756}
+            width={950}
+            height={713}
             className={styles.rulesImage}
             priority
           />

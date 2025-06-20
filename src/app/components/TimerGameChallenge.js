@@ -47,7 +47,7 @@ const TimerGameChallenge = ({ onTimerEnd }) => {
       {showFlash && <div className={styles.flash} />}
       {showContent && (
         <div className={styles.content}>
-          <div className={styles.timer}>{timer}</div>
+          <div className={styles.timer} style={{ fontFamily: 'Impact, sans-serif', fontSize: '7rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.1em', textAlign: 'center', marginBottom: '2rem' }}>{timer}</div>
           <div className={styles.challengeMainRow}>
             <Image
               src="/timergame.png"

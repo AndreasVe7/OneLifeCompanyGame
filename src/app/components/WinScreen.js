@@ -36,13 +36,13 @@ const WinScreen = ({ onRestart }) => {
         <p className={styles.subtitle}>ONE LIFE = ONE SHOT.</p>
 
         <div className={styles.rewardBox}>
-          <h2>Je hebt gewonnen!</h2>
+          <h2 style={{ fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }}>YOU WON!</h2>
           <div className={styles.rewardCode}>
-            <span>50% KORTINGSCODE:</span>
+            <span style={{ fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }}>50% DISCOUNT CODE:</span>
             <span className={styles.code}>OL50</span>
           </div>
           <p className={styles.rewardInfo}>
-            Toon deze code bij de stand om je GRATIS hoodie te ontvangen
+            <span style={{ fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }}>SHOW THIS CODE AT THE BOOTH TO GET YOUR FREE HOODIE</span>
           </p>
         </div>
 

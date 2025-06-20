@@ -21,7 +21,7 @@ const OneLifeDiscountChallenge = ({ onTimerEnd, initialTime = 10 }) => {
         <Image src="/transa.png" alt="Transa Logo" width={100} height={100} className={styles.logo} />
       </div>
       <div className={styles.content}>
-        <div className={styles.timer}>{timer}</div>
+        <div className={styles.timer} style={{ fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{timer}</div>
         <div className={styles.challengeMainRow}>
           <Image src="/onelifediscounttext.png" alt="One Life Discount Text" width={500} height={500} className={styles.group2Image} priority />
           <Image src="/onelifediscount.png" alt="One Life Discount" width={500} height={500} className={styles.tshirtImage} priority />

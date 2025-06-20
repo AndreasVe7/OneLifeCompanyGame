@@ -40,8 +40,8 @@ const TimerReflexChallenge = ({ onWin, onLose }) => {
   return (
     <div className={styles.container}>
       <div className={styles.centeredContent}>
-        <div className={styles.timer}>{currentTimer}</div>
-        <div className={styles.instruction}>Druk op SPATIE als je 00:00:01 ziet!</div>
+        <div className={styles.timer} style={{ fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{currentTimer}</div>
+        <div className={styles.instruction} style={{ fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }}>PRESS SPACE WHEN YOU SEE 00:00:01!</div>
       </div>
     </div>
   );

@@ -39,11 +39,11 @@ const SelfieGameChallenge = ({ onTimerEnd }) => {
           />
         </div>
         <div className={styles.content}>
-          <div style={{ fontSize: '2.5rem', color: '#000', marginBottom: '2rem', textAlign: 'center', maxWidth: 700 }}>
-            Take a selfie with 10 different people within 1 minute!<br />
-            Press START when you are ready to begin.
+          <div style={{ fontSize: '2.5rem', color: '#000', marginBottom: '2rem', textAlign: 'center', maxWidth: 700, fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            TAKE A SELFIE WITH 10 DIFFERENT PEOPLE WITHIN 1 MINUTE!<br />
+            PRESS START WHEN YOU ARE READY TO BEGIN.
           </div>
-          <button style={{ marginTop: 40, fontSize: '2rem', padding: '1rem 3rem', borderRadius: 8, background: '#000', color: '#fff', border: 'none', fontWeight: 'bold', cursor: 'pointer' }} onClick={() => { setPhase('timer'); setTimer(60); setDone(false); }}>
+          <button style={{ marginTop: 40, fontSize: '2rem', padding: '1rem 3rem', borderRadius: 8, background: '#000', color: '#fff', border: 'none', fontWeight: 'bold', cursor: 'pointer', fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }} onClick={() => { setPhase('timer'); setTimer(60); setDone(false); }}>
             START
           </button>
         </div>
@@ -64,8 +64,8 @@ const SelfieGameChallenge = ({ onTimerEnd }) => {
         />
       </div>
       <div className={styles.content}>
-        <div className={styles.timer} style={{ color: '#000' }}>{formatTime(timer)}</div>
-        <button style={{ marginTop: 40, fontSize: '2rem', padding: '1rem 3rem', borderRadius: 8, background: '#000', color: '#fff', border: 'none', fontWeight: 'bold', cursor: 'pointer' }} onClick={() => { setDone(true); onTimerEnd && onTimerEnd('win'); }} disabled={done}>
+        <div className={styles.timer} style={{ color: '#000', fontFamily: 'Impact, sans-serif', fontSize: '7rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.1em', textAlign: 'center', marginBottom: '2rem' }}>{formatTime(timer)}</div>
+        <button style={{ marginTop: 40, fontSize: '2rem', padding: '1rem 3rem', borderRadius: 8, background: '#000', color: '#fff', border: 'none', fontWeight: 'bold', cursor: 'pointer', fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }} onClick={() => { setDone(true); onTimerEnd && onTimerEnd('win'); }} disabled={done}>
           DONE
         </button>
       </div>

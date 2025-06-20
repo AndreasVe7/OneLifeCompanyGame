@@ -42,8 +42,8 @@ const LoseScreen = ({ onRestart }) => {
           <p className={styles.subtitle}>One second can cost it all.</p>
 
           <div className={styles.messageBox}>
-            <p className={styles.message}>
-              De tijd is om. Maar geen zorgen, je kunt het opnieuw proberen!
+            <p className={styles.message} style={{ fontFamily: 'Impact, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              TIME IS UP. BUT NO WORRIES, YOU CAN TRY AGAIN!
             </p>
           </div>
 
