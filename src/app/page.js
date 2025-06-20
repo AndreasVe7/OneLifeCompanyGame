@@ -10,17 +10,27 @@ import WalkAwayScreen from './components/WalkAwayScreen';
 import DecisionScreen from './components/DecisionScreen';
 import TimerScreen from './components/TimerScreen';
 import ThankYouScreen from './components/ThankYouScreen';
+import TimerGameChallenge from './components/TimerGameChallenge';
+import TimerReflexChallenge from './components/TimerReflexChallenge';
+import CardGameChallenge from './components/CardGameChallenge';
+import SelfieGameChallenge from './components/SelfieGameChallenge';
+import SelfieChallengeScreen from './components/SelfieChallengeScreen';
+import RockPaperScissorsChallenge from './components/RockPaperScissorsChallenge';
+import OneLifeDiscountChallenge from './components/OneLifeDiscountChallenge';
 import styles from './page.module.css';
 
 export default function Home() {
   const [currentScreen, setCurrentScreen] = useState('loader');
-  const [challenge, setChallenge] = useState(null);
+  const [currentChallenge, setCurrentChallenge] = useState(null);
   const [result, setResult] = useState(null);
   // Timer for DecisionScreen
   const DECISION_DURATION = 10; // seconds
   const [decisionTimer, setDecisionTimer] = useState(DECISION_DURATION);
   const [timerScreenActive, setTimerScreenActive] = useState(false);
   const [timerResult, setTimerResult] = useState(null); // 'win' or 'late'
+  const [selfiePhase, setSelfiePhase] = useState('initial'); // 'initial' | 'decision' | 'challenge'
+  const [rockPaperPhase, setRockPaperPhase] = useState('initial'); // 'initial' | 'explanation' | 'counter'
+  const [includeFirstChallenge, setIncludeFirstChallenge] = useState(true);
 
   useEffect(() => {
     if (currentScreen === 'decision') {
@@ -65,11 +75,32 @@ export default function Home() {
   };
 
   const handleRulesComplete = () => {
-    setCurrentScreen('challenge');
+    // Randomly pick a challenge
+    let challenges = ['timerGameChallenge', 'cardGameChallenge', 'selfieGameChallenge', 'rockPaperScissorsChallenge', 'oneLifeDiscountChallenge'];
+    if (includeFirstChallenge) {
+      challenges = ['challenge', ...challenges];
+    }
+    const randomChallenge = challenges[Math.floor(Math.random() * challenges.length)];
+    setCurrentChallenge(randomChallenge);
+    if (randomChallenge === 'selfieGameChallenge') {
+      setSelfiePhase('initial');
+    }
+    if (randomChallenge === 'rockPaperScissorsChallenge') {
+      setRockPaperPhase('initial');
+    }
+    setCurrentScreen(randomChallenge);
   };
 
   const handleChallengeTimerEnd = () => {
-    setCurrentScreen('decision');
+    if (currentChallenge === 'selfieGameChallenge') {
+      setSelfiePhase('decision');
+      setCurrentScreen('decision');
+    } else if (currentChallenge === 'rockPaperScissorsChallenge') {
+      setRockPaperPhase('decision');
+      setCurrentScreen('decision');
+    } else {
+      setCurrentScreen('decision');
+    }
   };
 
   const handleChallengeComplete = (result) => {
@@ -85,7 +116,7 @@ export default function Home() {
 
   const handleRestart = () => {
     setCurrentScreen('start');
-    setChallenge(null);
+    setCurrentChallenge(null);
     setResult(null);
   };
 
@@ -96,7 +127,17 @@ export default function Home() {
 
   const handleDoChallenge = () => {
     setTimerResult(null);
-    setCurrentScreen('timer');
+    if (currentChallenge === 'timerGameChallenge') {
+      setCurrentScreen('timerReflex');
+    } else if (currentChallenge === 'selfieGameChallenge') {
+      setSelfiePhase('challenge');
+      setCurrentScreen('selfieGameChallenge');
+    } else if (currentChallenge === 'rockPaperScissorsChallenge') {
+      setRockPaperPhase('explanation');
+      setCurrentScreen('rockPaperScissorsChallenge');
+    } else {
+      setCurrentScreen('timer');
+    }
   };
 
   const handleWalkAway = () => {
@@ -121,21 +162,37 @@ export default function Home() {
     setCurrentScreen('start');
   };
 
+  const handleStartTimerGameChallenge = () => {
+    setCurrentScreen('timerGameChallenge');
+  };
+
+  const handleRockPaperStart = () => setRockPaperPhase('counter');
+  const handleRockPaperCounterDone = (result) => {
+    if (result === 'win') {
+      setTimerResult('win');
+      setCurrentScreen('timerResult');
+    } else {
+      setTimerResult('late');
+      setCurrentScreen('timerResult');
+    }
+  };
+
   return (
     <main className={styles.main}>
       {currentScreen === 'loader' && (
         <LoaderScreen onComplete={handleLoaderComplete} />
       )}
       {currentScreen === 'start' && (
-        <StartScreen onStart={handleStart} />
+        <StartScreen onStart={handleStart} includeFirstChallenge={includeFirstChallenge} setIncludeFirstChallenge={setIncludeFirstChallenge} />
       )}
       {currentScreen === 'rules' && (
         <RulesScreen onStart={handleRulesComplete} />
       )}
       {currentScreen === 'challenge' && (
-        <ChallengeScreen
-          onTimerEnd={handleChallengeTimerEnd}
-        />
+        <ChallengeScreen onTimerEnd={handleChallengeTimerEnd} />
+      )}
+      {currentScreen === 'timerGameChallenge' && (
+        <TimerGameChallenge onTimerEnd={handleChallengeTimerEnd} />
       )}
       {currentScreen === 'decision' && (
         <DecisionScreen
@@ -201,6 +258,45 @@ export default function Home() {
           onRestart={handleRestart}
           onWatchOthers={handleWatchOthers}
         />
+      )}
+      {currentScreen === 'timerReflex' && (
+        <TimerReflexChallenge 
+          onWin={() => { setTimerResult('win'); setCurrentScreen('timerResult'); }}
+          onLose={() => { setTimerResult('late'); setCurrentScreen('timerResult'); }}
+        />
+      )}
+      {currentScreen === 'cardGameChallenge' && (
+        <CardGameChallenge 
+          onTimerEnd={handleChallengeTimerEnd}
+          onWin={() => { setTimerResult('win'); setCurrentScreen('timerResult'); }}
+          onLose={() => { setTimerResult('late'); setCurrentScreen('timerResult'); }}
+        />
+      )}
+      {currentScreen === 'selfieGameChallenge' && selfiePhase === 'initial' && (
+        <SelfieChallengeScreen onTimerEnd={handleChallengeTimerEnd} initialTime={10} />
+      )}
+      {currentScreen === 'selfieGameChallenge' && selfiePhase === 'challenge' && (
+        <SelfieGameChallenge onTimerEnd={(result) => {
+          if (result === 'win') {
+            setTimerResult('win');
+            setCurrentScreen('timerResult');
+          } else {
+            setTimerResult('late');
+            setCurrentScreen('timerResult');
+          }
+        }} />
+      )}
+      {currentScreen === 'rockPaperScissorsChallenge' && rockPaperPhase === 'initial' && (
+        <RockPaperScissorsChallenge phase="challenge" onTimerEnd={handleChallengeTimerEnd} initialTime={10} />
+      )}
+      {currentScreen === 'rockPaperScissorsChallenge' && rockPaperPhase === 'explanation' && (
+        <RockPaperScissorsChallenge phase="explanation" onStart={handleRockPaperStart} />
+      )}
+      {currentScreen === 'rockPaperScissorsChallenge' && rockPaperPhase === 'counter' && (
+        <RockPaperScissorsChallenge phase="counter" onCounterDone={handleRockPaperCounterDone} />
+      )}
+      {currentScreen === 'oneLifeDiscountChallenge' && (
+        <OneLifeDiscountChallenge onTimerEnd={handleChallengeTimerEnd} initialTime={10} />
       )}
     </main>
   );

@@ -33,7 +33,11 @@ const LoaderScreen = ({ onComplete }) => {
   }, [onComplete]);
 
   return (
-    <div className={`${styles.container} ${isBlackBackground ? styles.blackBackground : styles.whiteBackground}`}>
+    <div
+      className={`${styles.container} ${isBlackBackground ? styles.blackBackground : styles.whiteBackground}`}
+      onClick={showContent ? onComplete : undefined}
+      style={{ cursor: showContent ? 'pointer' : 'default' }}
+    >
       {showContent && (
         <div className={styles.content}>
           <div className={styles.logoContainer}>

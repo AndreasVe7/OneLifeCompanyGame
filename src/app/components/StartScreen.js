@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import styles from './StartScreen.module.css';
 
-const StartScreen = ({ onStart }) => {
+const StartScreen = ({ onStart, includeFirstChallenge, setIncludeFirstChallenge }) => {
   const [isGlitching, setIsGlitching] = useState(false);
 
   useEffect(() => {
@@ -35,6 +35,17 @@ const StartScreen = ({ onStart }) => {
       >
         PRESS TO START
       </button>
+      <div style={{ marginTop: 24, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <label style={{ fontSize: '1.2rem', color: '#fff', marginRight: 12 }}>
+          Include first challenge
+        </label>
+        <input
+          type="checkbox"
+          checked={includeFirstChallenge}
+          onChange={e => setIncludeFirstChallenge(e.target.checked)}
+          style={{ width: 24, height: 24 }}
+        />
+      </div>
       <div className={styles.bottomText}>
         <p className={styles.collaboration}>
           ONELIFECOMPANY X NEXT WAVE 2025

@@ -1,0 +1,35 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
+.centeredContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.timer {
+  font-family: 'Orbitron', 'Impact', sans-serif;
+  font-size: 9rem;
+  color: #000;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.instruction {
+  color: #222;
+  font-family: 'Impact', sans-serif;
+  font-size: 2.2rem;
+  text-align: center;
+  margin-top: 1rem;
+  letter-spacing: 0.05em;
+} 
